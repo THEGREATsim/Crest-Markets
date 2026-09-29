@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradeX Demo Dashboard</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #07111f;
+  color: white;
+}
+
+header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  border-bottom: 1px solid #1b3048;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #19c37d;
+}
+
+.account {
+  background: #102033;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #19c37d;
+}
+
+.container {
+  width: 88%;
+  max-width: 1400px;
+  margin: 30px auto;
+}
+
+.demo-banner {
+  background: #102033;
+  border: 1px solid #1b3048;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  color: #a9b8c9;
+}
+
+.demo-banner strong {
+  color: #19c37d;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: #0c1929;
+  border: 1px solid #1b3048;
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.card-title {
+  color: #91a2b5;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.balance {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.profit {
+  color: #19c37d;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+.market-list {
+  margin-top: 15px;
+}
+
+.market {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 0;
+  border-bottom: 1px solid #17283c;
+}
+
+.market:last-child {
+  border-bottom: none;
+}
+
+.market small {
+  display: block;
+  color: #718197;
+  margin-top: 5px;
+}
+
+.market-price {
+  text-align: right;
+}
+
+.green {
+  color: #19c37d;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.trade-panel h2 {
+  margin-bottom: 20px;
+}
+
+select,
+input {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 15px;
+  background: #07111f;
+  border: 1px solid #30455d;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+}
+
+.trade-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.buy,
+.sell {
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buy {
+  background: #19c37d;
+  color: #06140e;
+}
+
+.sell {
+  background: #e55353;
+  color: white;
+}
+
+.section {
+  margin-top: 25px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 15px 10px;
+  border-bottom: 1px solid #17283c;
+}
+
+th {
+  color: #718197;
+  font-size: 13px;
+}
+
+.empty {
+  color: #718197;
+  padding: 20px 0;
+}
+
+@media(max-width: 800px) {
+  .stats,
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    width: 94%;
+  }
+
+  header {
+    padding: 0 3%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Trade<span>X</span></div>
+  <div class="account">DEMO ACCOUNT</div>
+</header>
+
+<div class="container">
+
+  <div class="demo-banner">
+    🧪 You are trading with <strong>virtual funds</strong>.
+    No real money is being used.
+  </div>
+
+  <div class="stats">
+
+    <div class="card">
+      <div class="card-title">Account Balance</div>
+      <div class="balance" id="balance">$10,000.00</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Available Funds</div>
+      <div class="balance" id="available">$10,000.00</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Today's P/L</div>
+      <div class="balance profit" id="profit">+$0.00</div>
+    </div>
+
+  </div>
+
+  <div class="main">
+
+    <div class="card">
+      <h2>Markets</h2>
+
+      <div class="market-list">
+
+        <div class="market">
+          <div>
+            Bitcoin
+            <small>BTC/USD</small>
+          </div>
+
+          <div class="market-price">
+            $67,420
+            <div class="green">+2.41%</div>
+          </div>
+        </div>
+
+        <div class="market">
+          <div>
+            Ethereum
+            <small>ETH/USD</small>
+          </div>
+
+          <div class="market-price">
+            $3,420
+            <div class="green">+1.82%</div>
+          </div>
+        </div>
+
+        <div class="market">
+          <div>
+            Apple
+            <small>AAPL</small>
+          </div>
+
+          <div class="market-price">
+            $248.30
+            <div class="green">+0.94%</div>
+          </div>
+        </div>
+
+        <div class="market">
+          <div>
+            Gold
+            <small>XAU/USD</small>
+          </div>
+
+          <div class="market-price">
+            $2,685
+            <div class="green">+0.71%</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card trade-panel">
+
+      <h2>Place Demo Trade</h2>
+
+      <select id="asset">
+        <option value="BTC/USD">Bitcoin (BTC/USD)</option>
+        <option value="ETH/USD">Ethereum (ETH/USD)</option>
+        <option value="AAPL">Apple (AAPL)</option>
+        <option value="XAU/USD">Gold (XAU/USD)</option>
+      </select>
+
+      <input
+        type="number"
+        id="amount"
+        placeholder="Amount in USD"
+        min="1"
+      >
+
+      <div class="trade-buttons">
+        <button class="buy" onclick="placeTrade('BUY')">
+          BUY
+        </button>
+
+        <button class="sell" onclick="placeTrade('SELL')">
+          SELL
+        </button>
+      </div>
+
+      <p id="message" style="margin-top:18px;color:#91a2b5;"></p>
+
+    </div>
+
+  </div>
+
+  <div class="card section">
+
+    <h2>Open Positions</h2>
+
+    <div id="positions" class="empty">
+      No open positions.
+    </div>
+
+  </div>
+
+  <div class="card section">
+
+    <h2>Trade History</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody id="history">
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<script>
+
+let balance = 10000;
+let positions = [];
+
+function updateBalance() {
+  document.getElementById("balance").textContent =
+    "$" + balance.toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+  document.getElementById("available").textContent =
+    "$" + balance.toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+}
+
+function placeTrade(type) {
+
+  const asset = document.getElementById("asset").value;
+  const amount = Number(document.getElementById("amount").value);
+  const message = document.getElementById("message");
+
+  if (!amount || amount <= 0) {
+    message.textContent = "Enter a valid trade amount.";
+    return;
+  }
+
+  if (type === "BUY" && amount > balance) {
+    message.textContent = "Insufficient demo funds.";
+    return;
+  }
+
+  if (type === "BUY") {
+    balance -= amount;
+  }
+
+  if (type === "SELL") {
+    balance += amount;
+  }
+
+  positions.push({
+    asset: asset,
+    type: type,
+    amount: amount
+  });
+
+  updateBalance();
+  updatePositions();
+  addHistory(asset, type, amount);
+
+  message.textContent =
+    type + " order placed successfully for " +
+    asset + ".";
+
+  document.getElementById("amount").value = "";
+}
+
+function updatePositions() {
+
+  const container = document.getElementById("positions");
+
+  if (positions.length === 0) {
+    container.innerHTML = "No open positions.";
+    return;
+  }
+
+  container.innerHTML = "";
+
+  positions.forEach((position, index) => {
+
+    const div = document.createElement("div");
+
+    div.style.padding = "15px 0";
+    div.style.borderBottom = "1px solid #17283c";
+
+    div.innerHTML =
+      "<strong>" + position.asset + "</strong>" +
+      " — " + position.type +
+      " — $" + position.amount.toFixed(2);
+
+    container.appendChild(div);
+  });
+}
+
+function addHistory(asset, type, amount) {
+
+  const history = document.getElementById("history");
+
+  const row = document.createElement("tr");
+
+  row.innerHTML =
+    "<td>" + asset + "</td>" +
+    "<td>" + type + "</td>" +
+    "<td>$" + amount.toFixed(2) + "</td>" +
+    "<td style='color:#19c37d'>Executed</td>";
+
+  history.prepend(row);
+}
+
+updateBalance();
+
+</script>
+
+</body>
+</html>
