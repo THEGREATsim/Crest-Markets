@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TradeX | Trading Platform</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #07111f;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      border-bottom: 1px solid #17263a;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #19c37d;
+    }
+
+    .nav-buttons button {
+      padding: 11px 18px;
+      margin-left: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login {
+      background: transparent;
+      border: 1px solid #34465d;
+      color: white;
+    }
+
+    .signup {
+      background: #19c37d;
+      border: none;
+      color: #06140e;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 70px 7%;
+      gap: 50px;
+    }
+
+    .hero-text {
+      max-width: 650px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #102c2a;
+      color: #19c37d;
+      padding: 8px 14px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 58px;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    h1 span {
+      color: #19c37d;
+    }
+
+    .hero p {
+      color: #9bacbf;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons button {
+      padding: 15px 25px;
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .demo {
+      background: #19c37d;
+      border: none;
+      color: #06140e;
+    }
+
+    .real {
+      background: transparent;
+      color: white;
+      border: 1px solid #34465d;
+    }
+
+    .market-card {
+      width: 360px;
+      background: #0c1929;
+      border: 1px solid #1b3048;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .market-card h3 {
+      margin-bottom: 20px;
+    }
+
+    .asset {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid #17283c;
+    }
+
+    .asset:last-child {
+      border-bottom: none;
+    }
+
+    .price {
+      text-align: right;
+    }
+
+    .green {
+      color: #19c37d;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .features {
+      padding: 60px 7%;
+      background: #091525;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 34px;
+      margin-bottom: 35px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: #0c1929;
+      padding: 30px;
+      border-radius: 14px;
+      border: 1px solid #1b3048;
+    }
+
+    .feature h3 {
+      margin-bottom: 12px;
+    }
+
+    .feature p {
+      color: #91a2b5;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #718197;
+      border-top: 1px solid #17263a;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .market-card {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-buttons {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">Trade<span>X</span></div>
+
+    <div class="nav-buttons">
+      <button class="login">Log In</button>
+      <button class="signup">Create Account</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-text">
+      <div class="badge">Next-Generation Trading Platform</div>
+
+      <h1>
+        Trade smarter.<br>
+        <span>Build your future.</span>
+      </h1>
+
+      <p>
+        Access markets, manage your portfolio, and practice your
+        strategies with a powerful trading platform built for modern traders.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="demo">Start Demo Account</button>
+        <button class="real">Open Real Account</button>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <h3>Markets</h3>
+
+      <div class="asset">
+        <div>Bitcoin<br><small>BTC/USD</small></div>
+        <div class="price">
+          $67,420
+          <div class="green">+2.41%</div>
+        </div>
+      </div>
+
+      <div class="asset">
+        <div>Ethereum<br><small>ETH/USD</small></div>
+        <div class="price">
+          $3,420
+          <div class="green">+1.82%</div>
+        </div>
+      </div>
+
+      <div class="asset">
+        <div>Apple<br><small>AAPL</small></div>
+        <div class="price">
+          $248.30
+          <div class="green">+0.94%</div>
+        </div>
+      </div>
+
+      <div class="asset">
+        <div>Gold<br><small>XAU/USD</small></div>
+        <div class="price">
+          $2,685
+          <div class="green">+0.71%</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="features">
+
+    <h2>Everything you need to trade</h2>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+        <h3>📊 Advanced Charts</h3>
+        <p>
+          Monitor markets with powerful charts and trading tools.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>💰 Demo Trading</h3>
+        <p>
+          Practice with virtual funds before putting real money at risk.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>🔐 Secure Accounts</h3>
+        <p>
+          Built with account security and responsible financial infrastructure
+          in mind.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 TradeX. All rights reserved.
+  </footer>
+
+</body>
+</html> 
+      
+          
